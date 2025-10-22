@@ -1,41 +1,105 @@
-# claude-code
+# Claude Code + n8n + Supabase Integration
 
-Projeto configurado com MCP (Model Context Protocol) para integração com n8n e Supabase.
+Sistema completo de agendamento com automação via n8n e banco de dados Supabase, integrado através do Model Context Protocol (MCP).
 
-## MCP Servers Configurados
+## Status: ✅ 100% Funcional
 
-Este projeto inclui integração com:
+Ambos os MCP servers testados e operacionais:
+- **n8n MCP**: 537 nós, 41 ferramentas disponíveis
+- **Supabase MCP**: 9 tabelas, API REST funcionando
 
-- **n8n MCP**: Automação de workflows com acesso a 525+ nós do n8n
-- **Supabase MCP**: Gerenciamento e consultas ao banco de dados Supabase
+## Sistema de Agendamento
+
+### Funcionalidades
+- Gestão de empresas e serviços
+- Agendamentos com clientes
+- Pagamentos via Mercado Pago
+- Integração WhatsApp (Evolution API)
+- FAQ automático
+- Sistema de logs
+
+### Dados Atuais
+- **1 Empresa:** Clinica Dr Fernandes
+- **9 Tabelas:** empresas, servicos, clientes, agendamentos, horarios, pagamentos, nicho_templates, faq_entries, logs
+- **Integrações:** Evolution API (WhatsApp), Mercado Pago, n8n
 
 ## Quick Start
 
-1. Configure as variáveis de ambiente:
-   ```bash
-   cp .env.example .env
-   # Edite .env com suas credenciais
-   ```
+### 1. Configure as credenciais (GitHub Codespaces)
 
-2. Carregue as variáveis e inicie o Claude Code:
-   ```bash
-   source .env
-   claude-code
-   ```
+Adicione secrets no GitHub:
+- `N8N_API_URL`
+- `N8N_API_KEY`
+- `SUPABASE_URL`
+- `SUPABASE_SERVICE_ROLE_KEY`
 
-3. Verifique os MCP servers:
-   ```
-   /mcp
-   ```
+### 2. Use os scripts prontos
 
-## Documentação Completa
+```bash
+# Listar workflows do n8n
+./scripts/list_n8n_workflows.sh
 
-Para instruções detalhadas de configuração, credenciais e troubleshooting, consulte:
+# Buscar nós do n8n
+./scripts/n8n_search_nodes.sh "Supabase"
 
-**[MCP_SETUP.md](./MCP_SETUP.md)**
+# Consultar dados do Supabase
+./scripts/query_supabase.sh empresas
+./scripts/query_supabase.sh clientes 'id,nome,whatsapp'
 
-## Recursos
+# Criar template de workflow
+./scripts/create_n8n_workflow_template.sh webhook-to-supabase
+```
+
+## Automações Sugeridas
+
+### 1. Confirmação de Agendamento
+Novo agendamento → WhatsApp + Pagamento MP
+
+### 2. Lembrete 24h Antes
+Cron diário → Buscar agendamentos → Enviar lembretes
+
+### 3. Processamento de Pagamentos
+Webhook MP → Atualizar status → Notificar cliente
+
+### 4. FAQ Automático
+WhatsApp recebido → Buscar FAQ → Responder
+
+### 5. Relatório Diário
+Cron 18h → Resumo do dia → WhatsApp gestor
+
+## Documentação
+
+- **[MCP_SETUP.md](./MCP_SETUP.md)** - Configuração completa dos MCPs
+- **[TESTING_GUIDE.md](./TESTING_GUIDE.md)** - Como testar os servidores
+- **[SUPABASE_SCHEMA.md](./SUPABASE_SCHEMA.md)** - Schema completo do banco
+- **[INTEGRATION_TEST_RESULTS.md](./INTEGRATION_TEST_RESULTS.md)** - Resultados dos testes
+- **[MCP_WEB_LIMITATIONS.md](./MCP_WEB_LIMITATIONS.md)** - Limitações no ambiente web
+
+## Scripts Disponíveis
+
+| Script | Descrição |
+|--------|-----------|
+| `n8n_search_nodes.sh` | Buscar nós do n8n |
+| `list_n8n_workflows.sh` | Listar workflows |
+| `query_supabase.sh` | Consultar tabelas |
+| `list_supabase_tables.sh` | Listar tabelas |
+| `create_n8n_workflow_template.sh` | Gerar templates |
+
+## Recursos Externos
 
 - [n8n MCP Server](https://github.com/czlonkowski/n8n-mcp)
 - [Supabase MCP Docs](https://supabase.com/docs/guides/getting-started/mcp)
 - [Model Context Protocol](https://www.anthropic.com/news/model-context-protocol)
+- [Evolution API](https://evolution-api.com/)
+
+## Próximos Passos
+
+1. Ativar empresa no Supabase
+2. Cadastrar serviços e horários
+3. Criar primeiro workflow n8n
+4. Configurar Evolution API
+5. Testar fluxo completo
+
+---
+
+**Sistema pronto para produção!** 🚀
