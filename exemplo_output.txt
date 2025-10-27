@@ -1,0 +1,90 @@
+================================================================================
+🔍 VALIDANDO CONFIGURAÇÃO
+================================================================================
+✅ Token CSRF: a1b2c3d4e5f6g7h8i9j...
+✅ Sessão: xyz789abc123def456...
+📡 Base URL: https://sandra.hgumba.eb.mil.br
+
+================================================================================
+🚀 SANDRA API SCANNER - INICIANDO VARREDURA
+================================================================================
+Data/Hora: 27/10/2025 14:30:45
+Total de rotas: 12
+--------------------------------------------------------------------------------
+
+[1/12] Testando /atendimentos/pacientesInternados...
+✅ [200] /atendimentos/pacientesInternados (234ms)
+   └─ 15 registros (Array de Dados)
+
+[2/12] Testando /atendimentos/pacientesUrgenciaEmergenciaAcolhimento...
+✅ [200] /atendimentos/pacientesUrgenciaEmergenciaAcolhimento (189ms)
+   └─ 3 registros (Array de Dados)
+
+[3/12] Testando /atendimentos/pacientesUrgenciaEmergenciaEmAtendimento...
+✅ [200] /atendimentos/pacientesUrgenciaEmergenciaEmAtendimento (201ms)
+   └─ 8 registros (Array de Dados)
+
+[4/12] Testando /atendimentos/pacientesUrgenciaEmergenciaMeusPacientes...
+✅ [200] /atendimentos/pacientesUrgenciaEmergenciaMeusPacientes (156ms)
+   └─ 2 registros (Array de Dados)
+
+[5/12] Testando /atendimentos/verificaSala...
+✅ [200] /atendimentos/verificaSala (98ms)
+   └─ JSON com campo 'data' não-array
+
+[6/12] Testando /atendimentos/filtrarUnidadeInternacao...
+✅ [200] /atendimentos/filtrarUnidadeInternacao (145ms)
+   └─ 5 registros (Array de Dados)
+
+[7/12] Testando /especialidades/listaDropDownEspecialistasDisponivelMarcacao...
+✅ [200] /especialidades/listaDropDownEspecialistasDisponivelMarcacao (312ms)
+   └─ 47 registros (Array de Dados)
+
+[8/12] Testando /especialidades/listaDropDownEspecialidadesDisponivelMarcacao...
+✅ [200] /especialidades/listaDropDownEspecialidadesDisponivelMarcacao (278ms)
+   └─ 32 registros (Array de Dados)
+
+[9/12] Testando /questionarios/verificaExistencia...
+✅ [200] /questionarios/verificaExistencia (87ms)
+   └─ JSON: {"existe": false, "mensagem": "Nenhum questionário pendente"}...
+
+[10/12] Testando /pacientes/getOutrosContatosTmp...
+✅ [200] /pacientes/getOutrosContatosTmp (64ms)
+   └─ 0 registros (Array de Dados)
+
+[11/12] Testando /atendimentos/listaDropDownUnidadesInternacao...
+⚠️ [404] /atendimentos/listaDropDownUnidadesInternacao (125ms)
+   └─ HTML/Texto: <!DOCTYPE html><html><head><title>404 Página Não Encontrada</title>...
+
+[12/12] Testando /atendimentos/listaDropDownExamesLista...
+⚠️ [404] /atendimentos/listaDropDownExamesLista (118ms)
+   └─ HTML/Texto: <!DOCTYPE html><html><head><title>404 Página Não Encontrada</title>...
+
+--------------------------------------------------------------------------------
+🏁 VARREDURA CONCLUÍDA!
+--------------------------------------------------------------------------------
+
+================================================================================
+📊 RELATÓRIO RESUMIDO
+================================================================================
+
+Rota                                               Status     Tempo      Tipo
+--------------------------------------------------------------------------------
+/atendimentos/pacientesInternados                  200        234ms      JSON
+/atendimentos/pacientesUrgenciaEmergenciaAcolhimento 200      189ms      JSON
+/atendimentos/pacientesUrgenciaEmergenciaEmAtendimento 200    201ms      JSON
+/atendimentos/pacientesUrgenciaEmergenciaMeusPacientes 200    156ms      JSON
+/atendimentos/verificaSala                         200        98ms       JSON
+/atendimentos/filtrarUnidadeInternacao             200        145ms      JSON
+/especialidades/listaDropDownEspecialistasDisponivelMarcacao 200 312ms   JSON
+/especialidades/listaDropDownEspecialidadesDisponivelMarcacao 200 278ms  JSON
+/questionarios/verificaExistencia                  200        87ms       JSON
+/pacientes/getOutrosContatosTmp                    200        64ms       JSON
+/atendimentos/listaDropDownUnidadesInternacao      404        125ms      HTML/Texto
+/atendimentos/listaDropDownExamesLista             404        118ms      HTML/Texto
+
+✅ Relatório completo salvo em: sandra_resultados.json
+
+================================================================================
+✨ SCANNER FINALIZADO COM SUCESSO!
+================================================================================
