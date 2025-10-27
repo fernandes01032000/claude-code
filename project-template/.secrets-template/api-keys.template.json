@@ -1,0 +1,29 @@
+{
+  "services": {
+    "stripe": {
+      "public_key": "pk_test_XXXXXXXXXXXXXXXX",
+      "secret_key": "sk_test_XXXXXXXXXXXXXXXX",
+      "webhook_secret": "whsec_XXXXXXXXXXXXXXXX"
+    },
+    "aws": {
+      "access_key_id": "AKIAXXXXXXXXXXXXXXXX",
+      "secret_access_key": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "region": "us-east-1"
+    },
+    "sendgrid": {
+      "api_key": "SG.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    },
+    "google": {
+      "client_id": "XXXXXXXX-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.apps.googleusercontent.com",
+      "client_secret": "GOCSPX-XXXXXXXXXXXXXXXXXXXX",
+      "api_key": "AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    }
+  },
+  "internal_apis": {
+    "service_a": {
+      "base_url": "https://api.service-a.com",
+      "api_key": "XXXXXXXXXXXXXXXX",
+      "secret": "XXXXXXXXXXXXXXXX"
+    }
+  }
+}
