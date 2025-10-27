@@ -157,4 +157,51 @@ firefox sandra_dashboard_bootstrap.html
 
 ---
 
+## 🌐 Remote Access Tools
+
+Ferramentas completas para acesso remoto a computadores atrás de NAT/firewall.
+
+### 📦 Ferramentas Disponíveis
+
+- **diagnostico_acesso_remoto.sh** - Diagnóstico de rede e conectividade
+- **setup_tailscale.sh** - Instalador Tailscale VPN (Recomendado)
+- **setup_ngrok.sh** - Instalador ngrok para túneis SSH
+- **test_ssh_connection.sh** - Testador de conectividade SSH
+
+### 🚀 Quick Start
+
+```bash
+# 1. Diagnóstico completo
+./diagnostico_acesso_remoto.sh
+
+# 2. Instalar Tailscale (recomendado)
+./setup_tailscale.sh
+
+# 3. Testar conexão SSH
+./test_ssh_connection.sh
+```
+
+### 📚 Documentação
+
+- **[ACESSO_REMOTO_GUIA.md](./ACESSO_REMOTO_GUIA.md)** - Guia completo em português
+
+### 🎯 Métodos Suportados
+
+| Método | Dificuldade | Segurança | Custo |
+|--------|-------------|-----------|-------|
+| Tailscale VPN | ⭐ Fácil | ⭐⭐⭐ Alta | Grátis |
+| ngrok Tunnel | ⭐⭐ Média | ⭐⭐ Média | Grátis* |
+| Cloudflare Tunnel | ⭐⭐⭐ Difícil | ⭐⭐⭐ Alta | Grátis |
+| Port Forwarding | ⭐⭐⭐⭐ Difícil | ⭐ Baixa | Grátis |
+
+### 💡 Recomendação
+
+**Use Tailscale** - É o mais fácil, seguro e funciona em qualquer rede!
+
+```bash
+./setup_tailscale.sh
+```
+
+---
+
 **Sistema pronto para produção!** 🚀
