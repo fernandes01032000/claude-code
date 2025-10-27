@@ -1,89 +1,172 @@
-# Claude Code + n8n + Supabase Integration
+# Multi-Project Development Repository
 
-Sistema completo de agendamento com automação via n8n e banco de dados Supabase, integrado através do Model Context Protocol (MCP).
+Repositório organizado para desenvolvimento de múltiplos projetos e ferramentas com funcionalidades diversas.
 
-## Status: ✅ 100% Funcional
+## Estrutura do Repositório
 
-Ambos os MCP servers testados e operacionais:
-- **n8n MCP**: 537 nós, 41 ferramentas disponíveis
-- **Supabase MCP**: 9 tabelas, API REST funcionando
-
-## Sistema de Agendamento
-
-### Funcionalidades
-- Gestão de empresas e serviços
-- Agendamentos com clientes
-- Pagamentos via Mercado Pago
-- Integração WhatsApp (Evolution API)
-- FAQ automático
-- Sistema de logs
-
-### Dados Atuais
-- **1 Empresa:** Clinica Dr Fernandes
-- **9 Tabelas:** empresas, servicos, clientes, agendamentos, horarios, pagamentos, nicho_templates, faq_entries, logs
-- **Integrações:** Evolution API (WhatsApp), Mercado Pago, n8n
-
-## Quick Start
-
-### 1. Configure as credenciais (GitHub Codespaces)
-
-Adicione secrets no GitHub:
-- `N8N_API_URL`
-- `N8N_API_KEY`
-- `SUPABASE_URL`
-- `SUPABASE_SERVICE_ROLE_KEY`
-
-### 2. Use os scripts prontos
-
-```bash
-# Listar workflows do n8n
-./scripts/list_n8n_workflows.sh
-
-# Buscar nós do n8n
-./scripts/n8n_search_nodes.sh "Supabase"
-
-# Consultar dados do Supabase
-./scripts/query_supabase.sh empresas
-./scripts/query_supabase.sh clientes 'id,nome,whatsapp'
-
-# Criar template de workflow
-./scripts/create_n8n_workflow_template.sh webhook-to-supabase
+```
+.
+├── projects/          # Projetos independentes
+│   ├── sandra-api-scanner/    # Scanner de API SANDRA para sistemas de saúde
+│   └── test-tools/            # Ferramentas de teste de API e servidor
+├── scripts/           # Scripts utilitários organizados
+│   ├── installation/          # Scripts de instalação
+│   ├── setup/                 # Scripts de configuração
+│   └── utilities/             # Scripts de utilidade geral
+├── docs/              # Documentação
+│   ├── guides/               # Guias em inglês
+│   ├── pt-BR/                # Documentação em português
+│   └── examples/             # Exemplos e outputs
+└── .ai/               # Contexto de desenvolvimento com IA
 ```
 
-## Automações Sugeridas
+## Projetos Disponíveis
 
-### 1. Confirmação de Agendamento
-Novo agendamento → WhatsApp + Pagamento MP
+### 1. SANDRA API Scanner
+Scanner terminal para testes de API de sistemas de saúde.
 
-### 2. Lembrete 24h Antes
-Cron diário → Buscar agendamentos → Enviar lembretes
+**Localização:** `projects/sandra-api-scanner/`
 
-### 3. Processamento de Pagamentos
-Webhook MP → Atualizar status → Notificar cliente
+**Recursos:**
+- Busca de pacientes e médicos
+- Consulta de agendamentos
+- Validação de CPF
+- Testes de endpoints
 
-### 4. FAQ Automático
-WhatsApp recebido → Buscar FAQ → Responder
+**Como usar:**
+```bash
+cd projects/sandra-api-scanner
+python sandra_api_scanner.py
+```
 
-### 5. Relatório Diário
-Cron 18h → Resumo do dia → WhatsApp gestor
+**Documentação:** [projects/sandra-api-scanner/README.md](projects/sandra-api-scanner/README.md)
+
+---
+
+### 2. Test Tools (API Testing Framework)
+Framework completo de teste de API com servidor e cliente.
+
+**Localização:** `projects/test-tools/`
+
+**Recursos:**
+- Servidor de teste Node.js
+- Cliente Python com métricas de performance
+- Suporte a LocalTunnel para exposição pública
+- Testes de carga e latência
+
+**Como usar:**
+```bash
+cd projects/test-tools
+node test-server.js  # Terminal 1
+python test-api-client.py  # Terminal 2
+```
+
+**Documentação:** [projects/test-tools/README.md](projects/test-tools/README.md)
+
+---
+
+## Scripts Organizados
+
+### Instalação
+- **install-node-manual.sh** - Instalação manual do Node.js v22
+
+**Localização:** `scripts/installation/`
+
+### Configuração
+- **setup_sandra_scanner.sh** - Configuração do SANDRA Scanner
+- **setup-tunnel.sh** - Configuração de túneis LocalTunnel
+
+**Localização:** `scripts/setup/`
+
+### Utilidades
+- **run-demo.sh** - Execução de demonstrações
+- **create_n8n_workflow_template.sh** - Templates de workflow n8n
+- **list_n8n_workflows.sh** - Listar workflows n8n
+- **list_supabase_tables.sh** - Listar tabelas Supabase
+- **n8n_search_nodes.sh** - Buscar nós n8n
+- **query_supabase.sh** - Consultar dados Supabase
+
+**Localização:** `scripts/utilities/`
+
+---
 
 ## Documentação
 
-- **[MCP_SETUP.md](./MCP_SETUP.md)** - Configuração completa dos MCPs
-- **[TESTING_GUIDE.md](./TESTING_GUIDE.md)** - Como testar os servidores
-- **[SUPABASE_SCHEMA.md](./SUPABASE_SCHEMA.md)** - Schema completo do banco
-- **[INTEGRATION_TEST_RESULTS.md](./INTEGRATION_TEST_RESULTS.md)** - Resultados dos testes
-- **[MCP_WEB_LIMITATIONS.md](./MCP_WEB_LIMITATIONS.md)** - Limitações no ambiente web
+### Guias Principais (Inglês)
+- [Tunnel Guide](docs/guides/TUNNEL_GUIDE.md) - Guia completo de túneis
+- [LocalTunnel Guide](docs/guides/LOCALTUNNEL_GUIDE.md) - Configuração LocalTunnel
+- [Test Server](docs/guides/TEST_SERVER_README.md) - Servidor de testes
+- [Testing Guide](docs/guides/TESTING_GUIDE.md) - Guia de testes
+- [MCP Setup](docs/guides/MCP_SETUP.md) - Configuração MCP
+- [Supabase Schema](docs/guides/SUPABASE_SCHEMA.md) - Schema do banco
+- [Integration Tests](docs/guides/INTEGRATION_TEST_RESULTS.md) - Resultados de testes
 
-## Scripts Disponíveis
+### Documentação em Português
+- [Guia de Túneis PT](docs/pt-BR/README_TUNNELS_PT.md)
+- [Exemplo Prático](docs/pt-BR/EXEMPLO_PRATICO.md)
 
-| Script | Descrição |
-|--------|-----------|
-| `n8n_search_nodes.sh` | Buscar nós do n8n |
-| `list_n8n_workflows.sh` | Listar workflows |
-| `query_supabase.sh` | Consultar tabelas |
-| `list_supabase_tables.sh` | Listar tabelas |
-| `create_n8n_workflow_template.sh` | Gerar templates |
+### Exemplos
+- [Exemplo de Output SANDRA Scanner](docs/examples/sandra_scanner_output.txt)
+
+---
+
+## Integrações Disponíveis
+
+### n8n + Supabase (Status: ✅ 100% Funcional)
+- **n8n MCP**: 537 nós, 41 ferramentas
+- **Supabase MCP**: 9 tabelas, API REST
+- **Integrações**: Evolution API, Mercado Pago
+
+**Sistema de Agendamento:**
+- Gestão de empresas e serviços
+- Agendamentos com clientes
+- Pagamentos via Mercado Pago
+- WhatsApp (Evolution API)
+- FAQ automático
+
+---
+
+## Configuração Inicial
+
+### 1. Clone o repositório
+```bash
+git clone <repository-url>
+cd claude-code
+```
+
+### 2. Configure credenciais
+Copie `.env.example` para `.env` e preencha:
+```bash
+cp .env.example .env
+```
+
+**Variáveis necessárias:**
+- `N8N_API_URL` - URL da instância n8n
+- `N8N_API_KEY` - Chave de API n8n
+- `SUPABASE_URL` - URL do projeto Supabase
+- `SUPABASE_SERVICE_ROLE_KEY` - Service role key Supabase
+
+### 3. Instale dependências
+```bash
+# Node.js (recomendado: v22)
+./scripts/installation/install-node-manual.sh
+
+# Python 3.6+
+pip install requests
+```
+
+---
+
+## Adicionando Novos Projetos
+
+Para adicionar um novo projeto:
+
+1. Crie diretório em `projects/nome-do-projeto/`
+2. Adicione arquivo `README.md` no projeto
+3. Organize código-fonte, testes e docs no diretório do projeto
+4. Atualize este README com link para o novo projeto
+
+---
 
 ## Recursos Externos
 
@@ -92,14 +175,8 @@ Cron 18h → Resumo do dia → WhatsApp gestor
 - [Model Context Protocol](https://www.anthropic.com/news/model-context-protocol)
 - [Evolution API](https://evolution-api.com/)
 
-## Próximos Passos
-
-1. Ativar empresa no Supabase
-2. Cadastrar serviços e horários
-3. Criar primeiro workflow n8n
-4. Configurar Evolution API
-5. Testar fluxo completo
-
 ---
 
-**Sistema pronto para produção!** 🚀
+## Licença
+
+Este repositório é para uso pessoal e desenvolvimento de múltiplos projetos.
