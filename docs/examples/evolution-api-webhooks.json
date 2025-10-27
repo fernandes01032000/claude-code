@@ -1,0 +1,33 @@
+{
+  "message_upsert": {
+    "event": "message.upsert",
+    "instanceName": "loja-01",
+    "data": {
+      "remoteJid": "5511987654321@s.whatsapp.net",
+      "messageId": "ABGGFlA5FpafAgo6dGdP",
+      "fromMe": false,
+      "timestamp": 1714581600,
+      "message": {
+        "conversation": "Oi! Vocês atendem hoje?"
+      }
+    }
+  },
+  "message_status": {
+    "event": "message.status",
+    "instanceName": "loja-01",
+    "data": {
+      "messageId": "ABGGFlA5FpafAgo6dGdP",
+      "status": "DELIVERED",
+      "timestamp": 1714581630
+    }
+  },
+  "connection_update": {
+    "event": "connection.update",
+    "instanceName": "loja-01",
+    "data": {
+      "state": "CONNECTED",
+      "platform": "whatsapp",
+      "lastSync": 1714581655
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "create_payment_request": {
+    "method": "POST",
+    "url": "https://api.mercadopago.com/v1/payments",
+    "headers": {
+      "Authorization": "Bearer APP_USR-xxxxxxxxxxxxxxxxxxxx",
+      "Content-Type": "application/json",
+      "X-Idempotency-Key": "9b4f0fd6-5468-4b13-ae0d-e93c88241234"
+    },
+    "body": {
+      "transaction_amount": 79.90,
+      "description": "Assinatura Plano Premium",
+      "payment_method_id": "pix",
+      "payer": {
+        "email": "cliente@example.com",
+        "first_name": "Joana",
+        "last_name": "Silva",
+        "identification": {
+          "type": "CPF",
+          "number": "19119119100"
+        }
+      },
+      "metadata": {
+        "order_id": "ORDER-2024-00045"
+      }
+    }
+  },
+  "webhook_notification_example": {
+    "id": 1234567890,
+    "live_mode": true,
+    "type": "payment",
+    "date_created": "2024-05-01T18:22:11Z",
+    "user_id": 44556677,
+    "api_version": "v1",
+    "action": "payment.updated",
+    "data": {
+      "id": "1234567890"
+    }
+  }
+}
