@@ -102,4 +102,59 @@ Cron 18h → Resumo do dia → WhatsApp gestor
 
 ---
 
+## 🏥 SANDRA API Scanner & Test Server
+
+Sistema completo para testar e documentar APIs do sistema SANDRA (Hospital Geral de Umbuzeiro).
+
+### 📦 Dois Sistemas Independentes
+
+#### 1. Sistema SANDRA (Produção)
+- **sandra_api_scanner.js** - Scanner para console do navegador
+- **sandra_api_scanner.py** - Scanner Python com automação
+- **sandra_dashboard_bootstrap.html** - Dashboard visual em tempo real
+- **extrair_cookies.js** - Auxiliar para extração de cookies
+
+#### 2. Sistema de Testes (Desenvolvimento)
+- **test-server.js** - Servidor HTTP mock com APIs fake
+- **test-api-client.py** - Cliente universal para testar APIs
+- **run-demo.sh** - Demo automática completa
+
+### 🚀 Quick Start
+
+```bash
+# Demo rápida (30 segundos)
+./run-demo.sh
+
+# Testar com LocalTunnel
+python3 test-api-client.py https://sua-url.loca.lt
+
+# Scanner do SANDRA (console)
+# 1. Abra https://sandra.hgumba.eb.mil.br
+# 2. F12 → Console
+# 3. Cole o conteúdo de sandra_api_scanner.js
+
+# Dashboard visual
+firefox sandra_dashboard_bootstrap.html
+```
+
+### 📚 Documentação SANDRA
+
+- **[INDEX.md](./INDEX.md)** ⭐ **Navegação rápida - Comece aqui!**
+- **[GUIA_COMPLETO.md](./GUIA_COMPLETO.md)** - Guia completo de todos os arquivos
+- **[SANDRA_SCANNER_README.md](./SANDRA_SCANNER_README.md)** - Scanner do SANDRA
+- **[TEST_SERVER_README.md](./TEST_SERVER_README.md)** - Servidor de testes
+- **[LOCALTUNNEL_GUIDE.md](./LOCALTUNNEL_GUIDE.md)** - Como usar LocalTunnel
+- **[EXEMPLO_PRATICO.md](./EXEMPLO_PRATICO.md)** - Exemplos práticos
+
+### 🎯 Casos de Uso
+
+| Quero... | Use isto... |
+|----------|-------------|
+| Teste rápido (30s) | `./run-demo.sh` |
+| Ver dados do SANDRA | `sandra_dashboard_bootstrap.html` |
+| Testar LocalTunnel | `python3 test-api-client.py https://url` |
+| Automação Python | `sandra_api_scanner.py` |
+
+---
+
 **Sistema pronto para produção!** 🚀
