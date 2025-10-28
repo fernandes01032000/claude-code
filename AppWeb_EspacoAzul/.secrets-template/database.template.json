@@ -1,0 +1,23 @@
+{
+  "development": {
+    "host": "localhost",
+    "port": 5432,
+    "database": "dev_db",
+    "username": "dev_user",
+    "password": "CHANGE_ME"
+  },
+  "staging": {
+    "host": "staging-db.example.com",
+    "port": 5432,
+    "database": "staging_db",
+    "username": "staging_user",
+    "password": "USE_ENV_VARIABLE"
+  },
+  "production": {
+    "host": "prod-db.example.com",
+    "port": 5432,
+    "database": "prod_db",
+    "username": "prod_user",
+    "password": "USE_VAULT_OR_SECRETS_MANAGER"
+  }
+}
