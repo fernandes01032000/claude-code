@@ -1,0 +1,69 @@
+# Arquivos de Ambiente e Secrets
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+*.cert
+*.crt
+config/secrets.json
+config/credentials.json
+.secrets/
+
+# Dependências
+node_modules/
+vendor/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build e Cache
+dist/
+build/
+.cache/
+.parcel-cache/
+.next/
+out/
+*.egg-info/
+.pytest_cache/
+
+# IDEs e Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Arquivos temporários
+tmp/
+temp/
+*.tmp
+
+# Dados sensíveis
+*.sql
+*.sqlite
+*.db
+dumps/
+
+# Sistema Operacional
+Thumbs.db
+.DS_Store
+
+# Coverage e Testes
+coverage/
+.nyc_output/
+htmlcov/
+
+# Específico do projeto
+local-config.json
+private/

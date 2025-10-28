@@ -1,0 +1,38 @@
+{
+  "project": {
+    "name": "AppWeb EspacoAzul",
+    "version": "1.0.0",
+    "description": "Aplicação web para gerenciamento do Espaço Azul"
+  },
+  "database": {
+    "type": "postgresql",
+    "pool": {
+      "min": 2,
+      "max": 10
+    },
+    "timeout": 30000
+  },
+  "api": {
+    "timeout": 5000,
+    "retries": 3,
+    "rateLimit": {
+      "enabled": true,
+      "maxRequests": 100,
+      "windowMs": 60000
+    }
+  },
+  "security": {
+    "cors": {
+      "enabled": true,
+      "origins": ["http://localhost:3000"]
+    },
+    "helmet": {
+      "enabled": true
+    }
+  },
+  "features": {
+    "authentication": true,
+    "logging": true,
+    "monitoring": false
+  }
+}
